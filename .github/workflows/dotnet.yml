@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -25,9 +23,7 @@ jobs:
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
-       path: |
-           publish/ # Publish output
-            *.config # All .config files in the root directory
-            README.md # Include a specific file
-    
-    
+        path: |
+          publish/      # Publish output
+          *.config      # All .config files in the root directory
+          README.md     # Include a specific file
