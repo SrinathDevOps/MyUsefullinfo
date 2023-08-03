@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: src/HelloWorldApp/HelloWorldapp.sln
+      working-directory: MyUsefullinfo/src/HelloWorldApp
     - name: Build
       run: dotnet build ./HelloWorldapp.sln --configuration Release
     
