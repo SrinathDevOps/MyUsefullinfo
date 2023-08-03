@@ -24,4 +24,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: my-artifacts
-        path: ./src/HelloWorldApp/bin/Release//net6.0/
+        path: ./src/HelloWorldApp/Helloworldapp.web/bin/Release/net6.0/
