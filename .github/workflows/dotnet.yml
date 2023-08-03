@@ -25,6 +25,9 @@ jobs:
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
-        path: bin/Release/
+       path: |
+           publish/ # Publish output
+            *.config # All .config files in the root directory
+            README.md # Include a specific file
     
     
