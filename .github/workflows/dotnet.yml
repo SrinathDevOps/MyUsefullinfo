@@ -23,7 +23,5 @@ jobs:
     - name: Store artifacts
       uses: actions/upload-artifact@v2
       with:
-        path: |
-          publish/      # Publish output
-          *.config      # All .config files in the root directory
-          README.md     # Include a specific file
+        name: my-artifacts
+        path: ./src/HelloWorldApp/bin/Release/
