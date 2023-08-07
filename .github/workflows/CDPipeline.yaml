@@ -27,7 +27,7 @@ jobs:
           path: ./src/HelloWorldApp/Helloworldapp.web/bin/Release/net6.0/
       - name: Publish Application
         run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
-        working-directory: ./src/HelloWorldApp  # Corrected working directory
+        working-directory: ./src/HelloWorldApp  
       - name: Deploy to Production
         uses: azure/webapps-deploy@v2
         with:
