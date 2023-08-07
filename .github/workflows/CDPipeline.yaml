@@ -19,13 +19,14 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore
         working-directory: ./src/HelloWorldApp
-      - name: Build Application
-        run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
-        working-directory: ./src/HelloWorldApp
       - name: Debug Working Directory
         run: |
           pwd
           ls -R
+      - name: Build Application
+        run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
+        working-directory: ./src/HelloWorldApp
+
       - name: Publish Application
         run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
         working-directory: ./src/HelloWorldApp
