@@ -15,8 +15,8 @@ jobs:
           pwd
           ls -R
       - name: Publish Application
-        run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
-        working-directory: ./src/HelloWorldApp
+        run: dotnet publish ./HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
+        working-directory: ./src
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v2
         with:
