@@ -15,11 +15,13 @@ jobs:
           pwd
           ls -R
       - name: Publish Application
-        run: dotnet publish ./HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
-        working-directory: ./src
-      - name: Deploy to Azure
+        run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
+        working-directory: ./src/HelloWorldApp
+
+      - name: Deploy to Production
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "helloapp-dev" # Replace with your Azure App Service name
+          app-name: 'helloapp-dev'  # Replace with your Azure App Service name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./src/HelloWorldApp/publish
+          package: ./publish
+          
