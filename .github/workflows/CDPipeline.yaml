@@ -5,6 +5,7 @@ on:
     workflows: [".NET"]
     types:
       - completed
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,7 +27,7 @@ jobs:
           path: ./src/HelloWorldApp/Helloworldapp.web/bin/Release/net6.0/
       - name: Publish Application
         run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
-        working-directory: ./src/HelloWorldApp
+        working-directory: ./src/HelloWorldApp  # Corrected working directory
       - name: Deploy to Production
         uses: azure/webapps-deploy@v2
         with:
