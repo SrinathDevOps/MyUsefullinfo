@@ -27,7 +27,7 @@ jobs:
       - name: Deploy to Production
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "your-app-name" # Replace with your Azure App Service name
+          app-name: "helloapp-dev" # Replace with your Azure App Service name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: ./publish
       #- name: Store artifacts
