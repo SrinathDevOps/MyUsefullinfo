@@ -10,6 +10,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Working Directory
+        run: |
+          pwd
+          ls -R
       - name: Publish Application
         run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
         working-directory: ./src/HelloWorldApp
