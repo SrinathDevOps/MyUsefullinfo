@@ -1,4 +1,4 @@
-name: .NET Build Workflow
+name: .NET
 
 on:
   push:
@@ -10,28 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 6.0.x
-      - name: Restore dependencies
-        run: dotnet restore
-        working-directory: ./src/HelloWorldApp
-      - name: Build
-        run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
-      - name: Publish Application
-        run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release --output ./publish
-        working-directory: ./src/HelloWorldApp
-
-      - name: Deploy to Production
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: "helloapp-dev" # Replace with your Azure App Service name
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: ./publish
-      #- name: Store artifacts
-      #  uses: actions/upload-artifact@v2
-      #  with:
-       #   name: my-artifacts
-         # path: ./src/HelloWorldApp/Helloworldapp.web/bin/Release/net6.0/
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: ./src/HelloWorldApp
+    - name: Build
+      run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
+    - name: Store artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifacts
+        path: ./src/HelloWorldApp/Helloworldapp.web/bin/Release/net6.0/
