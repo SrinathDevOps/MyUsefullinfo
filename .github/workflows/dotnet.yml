@@ -23,7 +23,6 @@ jobs:
         working-directory: ./src/HelloWorldApp
       - name: Build
         run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
-      - name: Publish
       - name: Publish Application
         run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln -c Release --output ./src/HelloWorldApp/myapp
       - name: "Run Azure webapp deploy action using publish profile credentials"
