@@ -31,7 +31,8 @@ jobs:
       - name: Build
         run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
       - name: Publish
-        run: dotnet publish -c Release --property:PublishDir='./src/HelloWorldApp/HelloWorldapp.sln/myapp'
+      - name: Publish Application
+        run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln -c Release --output ./src/HelloWorldApp/myapp
       - name: 'Run Azure webapp deploy action using publish profile credentials'
         uses: azure/webapps-deploy@v2
         with: 
