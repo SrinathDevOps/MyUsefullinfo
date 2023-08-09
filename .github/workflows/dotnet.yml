@@ -24,14 +24,14 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
-      
-      # Run dotnet build and publish
-      - name: dotnet build and publish
-        run: |
-          dotnet restore
-          dotnet build --configuration Release
-          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
-          
+    # Run dotnet build and publish
+      - name: Restore dependencies
+        run: dotnet restore
+        working-directory: ./src/HelloWorldApp
+      - name: Build
+        run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
+      - name: Publish
+        run: dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
         uses: azure/webapps-deploy@v2
