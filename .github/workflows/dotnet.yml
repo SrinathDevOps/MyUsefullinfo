@@ -1,30 +1,23 @@
 name: .NET Build Workflow CID and CD
-
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-
+    branches: [main]
 env:
-  AZURE_WEBAPP_NAME: helloapp-dev                   
-  AZURE_WEBAPP_PACKAGE_PATH: './src/HelloWorldApp'      
-  DOTNET_VERSION: '6.0.x'          
-
+  AZURE_WEBAPP_NAME: helloapp-dev
+  AZURE_WEBAPP_PACKAGE_PATH: "./src/HelloWorldApp"
+  DOTNET_VERSION: "6.0.x"
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
- 
       - uses: actions/checkout@main
-      
-     
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }} 
-    # Run dotnet build and publish
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      # Run dotnet build and publish
       - name: Restore dependencies
         run: dotnet restore
         working-directory: ./src/HelloWorldApp
@@ -33,9 +26,9 @@ jobs:
       - name: Publish
       - name: Publish Application
         run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln -c Release --output ./src/HelloWorldApp/myapp
-      - name: 'Run Azure webapp deploy action using publish profile credentials'
+      - name: "Run Azure webapp deploy action using publish profile credentials"
         uses: azure/webapps-deploy@v2
-        with: 
-          app-name: ${{ env.AZURE_WEBAPP_NAME }} 
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} 
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
+          package: "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp"
