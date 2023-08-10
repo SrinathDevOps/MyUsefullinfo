@@ -1,4 +1,4 @@
-name: .NET Build Workflow CID and CD done added code in dev env
+name: .NET Build Workflow CID and CD done added code in dev env now
 on:
   push:
     branches:
