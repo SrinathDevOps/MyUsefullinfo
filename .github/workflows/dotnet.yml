@@ -10,6 +10,7 @@ on:
       - release/2023.10.100
 env:
   AZURE_WEBAPP_NAME: helloapp-dev
+  AZURE_WEBAPP_UAT_NAME: helloworldsrips-uat
  # AZURE_WEBAPP_UAT_PUBLISH_PROFILE: helloworldsrips-uat
   AZURE_WEBAPP_PACKAGE_PATH: "./src/HelloWorldApp"
   DOTNET_VERSION: "6.0.x"
