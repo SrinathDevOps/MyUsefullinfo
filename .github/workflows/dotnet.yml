@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - main
-      - release
+      - release/2023.10.100
   pull_request:
     branches:
       - main
-      - release
+      - release/2023.10.100
 env:
   AZURE_WEBAPP_NAME: helloapp-dev
   AZURE_WEBAPP_PACKAGE_PATH: "./src/HelloWorldApp"
