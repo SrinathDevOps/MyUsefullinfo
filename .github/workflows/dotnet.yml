@@ -50,7 +50,7 @@ jobs:
 
       - name: Login to Argo CD
         run: |
-         echo "y" | argocd-linux-amd64 login 172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
+         echo "y" | argocd login 172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
 
       - name: Sync Argo CD application
         run: argocd app sync hello-dotnet-app
