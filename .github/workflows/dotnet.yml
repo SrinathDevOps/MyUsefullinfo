@@ -34,6 +34,9 @@ jobs:
           ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
           ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
         run: |
+          # Log in to Azure Container Registry
+          docker login $ACR_REGISTRY -u $ACR_USERNAME -p $ACR_PASSWORD
+          # Build and push the Docker image
           docker buildx build --file Dockerfile --tag $ACR_REGISTRY/hello-dotnet-app:latest --push .
 
       - name: Set up Argo CD CLI
