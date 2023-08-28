@@ -52,6 +52,8 @@ jobs:
         run: |
          echo "y" | argocd login 172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
 
+      - name: set permission Argo CD application
+        run: argocd app set hello-dotnet-app --sync-policy automated --self-heal --namespace argocd --project argocd
       - name: Sync Argo CD application
         run: argocd app sync hello-dotnet-app
       
