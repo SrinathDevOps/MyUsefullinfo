@@ -56,5 +56,10 @@ jobs:
         run: argocd app set hello-dotnet-app --sync-policy automated --self-heal --dest-namespace argocd
       - name: Sync Argo CD application
         run: argocd app sync hello-dotnet-app
+      - name: Sync app creation application
+        run: argocd app create argocd-demo --repo https://github.com/SrinathDevOps/MyUsefullinfo/tree/main/argocd-manifests/apps/hello-dotnet --path kubernetes-manifests --dest-namespace default --dest-server https://kubernetes.default.svs
+      - name: Sync app sync
+        run: argocd app sync argocd-demo
+
       
    
