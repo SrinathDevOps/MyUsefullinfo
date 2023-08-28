@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-dotnet-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-dotnet-app
+  template:
+    metadata:
+      labels:
+        app: hello-dotnet-app
+    spec:
+      containers:
+        - name: hello-dotnet-app
+          image: argocdsrips.azurecr.io/hello-dotnet-app:latest
+          ports:
+            - containerPort: 80
