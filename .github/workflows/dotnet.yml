@@ -39,7 +39,7 @@ jobs:
         run: |
          # Log in to Azure Container Registry
          docker login argocdsrips.azurecr.io -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
-         # Build and push the Docker image
+         # Build and push the Docker image see
          docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest --push .
 
 
