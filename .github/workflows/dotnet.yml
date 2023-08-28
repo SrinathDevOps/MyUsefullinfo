@@ -42,11 +42,13 @@ jobs:
          # Build and push the Docker image see
          docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest --push .
 
-      - name: Set up Argo CD CLI
-        run: curl -LO https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 && chmod +x argocd-linux-amd64 && sudo mv argocd-linux-amd64 /usr/local/bin/argocd
+   
+      
+      #- name: Set up Argo CD CLI
+       # run: curl -LO https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 && chmod +x argocd-linux-amd64 && sudo mv argocd-linux-amd64 /usr/local/bin/argocd
 
       - name: Login to Argo CD
-        run: argocd login --insecure --username admin --password 'ElevengthCorner@123' --server https://172.178.38.39:32362
+        run: argocd login --insecure --username admin --password 'ElevengthCorner@123' --server 'https://172.178.38.39:32362'
 
       - name: Sync Argo CD application
         run: argocd app sync hello-dotnet-app
