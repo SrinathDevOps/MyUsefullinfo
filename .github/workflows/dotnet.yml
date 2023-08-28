@@ -49,7 +49,8 @@ jobs:
          sudo mv argocd-linux-amd64 /usr/local/bin/argocd
 
       - name: Login to Argo CD
-        run: argocd login --server https://172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
+        run: |
+         echo "y" | argocd-linux-amd64.1 login 172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
 
       - name: Sync Argo CD application
         run: argocd app sync hello-dotnet-app
