@@ -5,10 +5,16 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: "https://kubernetes.default.svc"
-    namespace: default
+    server: https://kubernetes.default.svc
+    namespace: myapp
   source:
-    repoURL: "https://github.com/SrinathDevOps/MyUsefullinfo.git" # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
+    repoURL: https://github.com/SrinathDevOps/MyUsefullinfo.git # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
     targetRevision: HEAD
-    path: argocd-manifests/apps/hello-dotnet
+    path: argocd-manifests/apps/hello-dotnet/kubernetes-manifests
   project: default
+  syncPolicy:
+    syncOption:
+    -CreateNamespace=true
+   automated:
+      selfHeal:true
+      prune:true
