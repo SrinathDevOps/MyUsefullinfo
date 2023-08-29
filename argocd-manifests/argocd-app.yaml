@@ -13,8 +13,6 @@ spec:
     path: argocd-manifests
   project: default
   syncPolicy:
-    syncOption:
-    -CreateNamespace=true
-   automated:
-      selfHeal:true
+    syncOption: -CreateNamespace=true
+    automated: selfHeal:true
       prune:true
