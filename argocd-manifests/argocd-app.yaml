@@ -6,10 +6,10 @@ metadata:
 spec:
   destination:
     server: https://10.0.0.4:6443
-    namespace: myapp
+    namespace: default
   source:
     repoURL: https://github.com/SrinathDevOps/MyUsefullinfo.git # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
-    targetRevision: HEAD
+    targetRevision: main
     path: argocd-manifests
   project: default
   syncPolicy:
