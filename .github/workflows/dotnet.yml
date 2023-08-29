@@ -41,16 +41,19 @@ jobs:
          docker login argocdsrips.azurecr.io -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
          # Build and push the Docker image see
          docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest --push .
-
-      - name: Set up Argo CD CLI
+      - name: Update Kubernetes Deployment
         run: |
-         curl -LO https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-         chmod +x argocd-linux-amd64
-         sudo mv argocd-linux-amd64 /usr/local/bin/argocd
+          sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|g' MyUsefullinfo/argocd-manifests/apps/hello-dotnet/kubernetes-manifests/hello-dotnet-app-deployment.yaml
 
-      - name: Login to Argo CD
-        run: |
-         echo "y" | argocd login 172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
+     # - name: Set up Argo CD CLI
+     #   run: |
+     #    curl -LO https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+      #   chmod +x argocd-linux-amd64
+      #   sudo mv argocd-linux-amd64 /usr/local/bin/argocd
+
+    #  - name: Login to Argo CD
+     #   run: |
+     #    echo "y" | argocd login 172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
 
      # - name: set permission Argo CD application
        # run: argocd app set hello-dotnet-app --sync-policy automated --self-heal --dest-namespace argocd
@@ -59,8 +62,8 @@ jobs:
      # - name: Sync app creation application
       #  run: argocd app set hello-dotnet-app --sync-policy automated --self-heal --repo https://github.com/SrinathDevOps/MyUsefullinfo.git --path argocd-manifests/apps/hello-dotnet --dest-namespace default --dest-server https://kubernetes.default.svc
 
-      - name: Sync app sync
-        run: argocd app sync hello-dotnet-app
+  #    - name: Sync app sync
+    #    run: argocd app sync hello-dotnet-app
 
       
    
