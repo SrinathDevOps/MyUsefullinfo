@@ -5,10 +5,10 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: https://10.0.0.4:6443
+    server: 'https://kubernetes.default.svc'
     namespace: default
   source:
-    repoURL: https://github.com/SrinathDevOps/MyUsefullinfo.git # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
+    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git' # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
     targetRevision: main
     path: argocd-manifests
   project: default
