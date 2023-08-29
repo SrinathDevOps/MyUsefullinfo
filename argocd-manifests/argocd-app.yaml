@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    server: https://kubernetes.default.svc
+    server: https://10.0.0.4:6443
     namespace: myapp
   source:
     repoURL: https://github.com/SrinathDevOps/MyUsefullinfo.git # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
