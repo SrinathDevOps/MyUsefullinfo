@@ -43,7 +43,7 @@ jobs:
          docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest --push .
       - name: Update Kubernetes Deployment
         run: |
-         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|g' MyUsefullinfo/argocd-manifests/apps/hello-dotnet/kubernetes-manifests/hello-dotnet-app-deployment.yaml
+         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|g' 'MyUsefullinfo/argocd-manifests/apps/hello-dotnet/kubernetes-manifests/hello-dotnet-app-deployment.yaml'
 
        
      # - name: Set up Argo CD CLI
