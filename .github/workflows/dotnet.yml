@@ -1,55 +1,66 @@
-name: .NET Build Workflow CID and CD done added code in dev env now
+name: .NET Build and Deploy
+
 on:
   push:
     branches:
       - main
-      - release/2023.10.100
-  pull_request:
-    branches:
-      - main
-      - release/2023.10.100
-env:
-  AZURE_WEBAPP_NAME: helloapp-dev
-  AZURE_WEBAPP_UAT_NAME: helloworldsrips-uat
- # AZURE_WEBAPP_UAT_PUBLISH_PROFILE: helloworldsrips-uat
-  AZURE_WEBAPP_PACKAGE_PATH: "./src/HelloWorldApp"
-  DOTNET_VERSION: "6.0.x"
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@main
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
-      # Run dotnet build and publish
+          dotnet-version: "6.0.x"
+
       - name: Restore dependencies
         run: dotnet restore
         working-directory: ./src/HelloWorldApp
+
       - name: Build
         run: dotnet build ./src/HelloWorldApp/HelloWorldapp.sln --configuration Release
+
       - name: Publish Application
         run: dotnet publish ./src/HelloWorldApp/HelloWorldapp.sln -c Release --output ./src/HelloWorldApp/myapp
-      - name: Deploy to Dev
-        if: github.ref == 'refs/heads/main'
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: helloapp-dev
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: "./src/HelloWorldApp/myapp"
-      - name: helloworldsrips-uat
-        if: github.ref == 'refs/heads/release/2023.10.100'
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: helloworldsrips-uat
-          publish-profile: ${{ secrets.AZURE_WEBAPP_UAT_PUBLISH_PROFILE }}
-          package: "./src/HelloWorldApp/myapp"
+        
+      - name: Debug Logs
+        run: |
+          echo "ACR_USERNAME: $ACR_USERNAME"
+          echo "ACR_PASSWORD: $ACR_PASSWORD"
+      - name: Publish ACR Image
+        env:
+           ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
+           ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
+        run: |
+         # Log in to Azure Container Registry
+         docker login argocdsrips.azurecr.io -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
+         # Build and push the Docker image see
+         docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest --push .
 
-      - name: Deploy to Prod
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: helloworldsrips
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PROD_PUBLISH_PROFILE }}
-          package: "./src/HelloWorldApp/myapp"
+      - name: Set up Argo CD CLI
+        run: |
+         curl -LO https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+         chmod +x argocd-linux-amd64
+         sudo mv argocd-linux-amd64 /usr/local/bin/argocd
+
+      - name: Login to Argo CD
+        run: |
+         echo "y" | argocd login 172.178.38.39:32362 --insecure --username admin --password 'ElevengthCorner@123' 
+
+     # - name: set permission Argo CD application
+       # run: argocd app set hello-dotnet-app --sync-policy automated --self-heal --dest-namespace argocd
+     # - name: Sync Argo CD application
+      #  run: argocd app sync hello-dotnet-app
+     # - name: Sync app creation application
+      #  run: argocd app set hello-dotnet-app --sync-policy automated --self-heal --repo https://github.com/SrinathDevOps/MyUsefullinfo.git --path argocd-manifests/apps/hello-dotnet --dest-namespace default --dest-server https://kubernetes.default.svc
+
+      - name: Sync app sync
+        run: argocd app sync hello-dotnet-app
+
+      
+   
