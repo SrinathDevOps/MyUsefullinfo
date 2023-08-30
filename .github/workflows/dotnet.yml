@@ -53,8 +53,8 @@ jobs:
          sed -i 's|replicas: .*|replicas: 10|g' argocd-manifests/hello-dotnet-app-deployment.yaml
          echo "After:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
-      - name: Apply Kubernetes Manifest
-        run: kubectl apply -f argocd-manifests/hello-dotnet-app-deployment.yaml
+     # - name: Apply Kubernetes Manifest
+     #   run: kubectl apply -f argocd-manifests/hello-dotnet-app-deployment.yaml
 
       - name: Debug Info
         run: |
