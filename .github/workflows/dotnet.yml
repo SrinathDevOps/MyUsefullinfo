@@ -43,14 +43,14 @@ jobs:
           
           # Build and push the Docker image
           docker build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.v7 .
-          docker push argocdsrips.azurecr.io/hello-dotnet-app:latest.v7
+          docker push argocdsrips.azurecr.io/hello-dotnet-app:latest.v8
 
       - name: Update Kubernetes Deployment
         run: |
          echo "Before:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
-         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.v7|g' argocd-manifests/hello-dotnet-app-deployment.yaml
-         sed -i 's|replicas: .*|replicas: 10|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.v8|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+         sed -i 's|replicas: .*|replicas: 4|g' argocd-manifests/hello-dotnet-app-deployment.yaml
          echo "After:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
 
