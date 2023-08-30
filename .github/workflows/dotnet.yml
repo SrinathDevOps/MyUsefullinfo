@@ -42,7 +42,7 @@ jobs:
           docker login argocdsrips.azurecr.io -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
           
           # Build and push the Docker image
-          docker build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.v7 .
+          docker build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.v8 .
           docker push argocdsrips.azurecr.io/hello-dotnet-app:latest.v8
 
       - name: Update Kubernetes Deployment
