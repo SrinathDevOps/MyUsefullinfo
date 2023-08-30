@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-dotnet-app
 spec:
-  replicas: 4
+  replicas: 10
   selector:
     matchLabels:
       app: hello-dotnet-app
