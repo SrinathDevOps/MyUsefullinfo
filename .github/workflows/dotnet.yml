@@ -53,8 +53,14 @@ jobs:
          sed -i 's|replicas: .*|replicas: 10|g' argocd-manifests/hello-dotnet-app-deployment.yaml
          echo "After:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
-     # - name: Apply Kubernetes Manifest
-     #   run: kubectl apply -f argocd-manifests/hello-dotnet-app-deployment.yaml
+
+      - name: Commit Changes
+        run: |
+          git config --local user.email "srinath.kaithoju@gmail.com
+          git config --local user.name "SrinathDevOps"
+          git add .
+          git commit -m "Update Kubernetes deployment and replicas"
+          git push origin main
 
       - name: Debug Info
         run: |
