@@ -1,0 +1,7 @@
+/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/myapp/Helloworldapp.web
+/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/myapp/appsettings.Development.json
+/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/myapp/appsettings.json
+/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/myapp/Helloworldapp.web.dll
+/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/myapp/Helloworldapp.web.deps.json
+/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/myapp/Helloworldapp.web.runtimeconfig.json
+/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/myapp/Helloworldapp.web.pdb

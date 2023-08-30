@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: hello-dotnet-app
-          image: argocdsrips.azurecr.io/hello-dotnet-app:latest.3
+          image: argocdsrips.azurecr.io/hello-dotnet-app:latest.5
           ports:
             - containerPort: 80
       imagePullSecrets:

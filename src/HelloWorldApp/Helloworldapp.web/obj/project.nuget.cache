@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jsm8DCc97tZP5Lj8WPCyHJOq4hcVhfC+eIIu4g+D2b/PRM5c8Iq5DbH1Y7piyNjC5JXmyW+ta0VpNewjlbbPEQ==",
+  "dgSpecHash": "kSgQTaRJgD6QieCfjS6i94GmZI42nPMzJb63GYW/m+div7p65D+wIRCNveTHZ2zzHDNTFSYCxmoAT92wwXejKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\srinath.kaithoju.ext\\pocazure\\HelloWorldapp\\Helloworldapp.web\\Helloworldapp.web.csproj",
+  "projectFilePath": "/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/Helloworldapp.web/Helloworldapp.web.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

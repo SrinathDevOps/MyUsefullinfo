@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\srinath.kaithoju.ext\\pocazure\\HelloWorldapp\\Helloworldapp.web\\Helloworldapp.web.csproj": {}
+    "/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/Helloworldapp.web/Helloworldapp.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\srinath.kaithoju.ext\\pocazure\\HelloWorldapp\\Helloworldapp.web\\Helloworldapp.web.csproj": {
+    "/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/Helloworldapp.web/Helloworldapp.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\srinath.kaithoju.ext\\pocazure\\HelloWorldapp\\Helloworldapp.web\\Helloworldapp.web.csproj",
+        "projectUniqueName": "/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/Helloworldapp.web/Helloworldapp.web.csproj",
         "projectName": "Helloworldapp.web",
-        "projectPath": "C:\\Users\\srinath.kaithoju.ext\\pocazure\\HelloWorldapp\\Helloworldapp.web\\Helloworldapp.web.csproj",
-        "packagesPath": "C:\\Users\\srinath.kaithoju.ext\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\srinath.kaithoju.ext\\pocazure\\HelloWorldapp\\Helloworldapp.web\\obj\\",
+        "projectPath": "/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/Helloworldapp.web/Helloworldapp.web.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/MyUsefullinfo/MyUsefullinfo/src/HelloWorldApp/Helloworldapp.web/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\srinath.kaithoju.ext\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/runner/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +43,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -57,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/runner/.dotnet/sdk/6.0.413/RuntimeIdentifierGraph.json"
         }
       }
     }
