@@ -38,10 +38,10 @@ jobs:
          # Log in to Azure Container Registry
          docker login argocdsrips.azurecr.io -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
          # Build and push the Docker image see
-         docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.1 --push .
+         docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest --push .
       - name: Update Kubernetes Deployment
         run: |
-          sed 's|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.1|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.1|g' argocd-manifests/hello-dotnet-app-deployment.yaml > modified-deployment.yaml
+          sed 's|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|g' argocd-manifests/hello-dotnet-app-deployment.yaml > modified-deployment.yaml
           mv modified-deployment.yaml argocd-manifests/hello-dotnet-app-deployment.yaml
 
       - name: Debug Info
