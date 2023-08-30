@@ -8,7 +8,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: default
   source:
-    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git?access_token=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' # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
+    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git' # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
     targetRevision: main
     path: argocd-manifests
   project: default
