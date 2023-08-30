@@ -41,7 +41,11 @@ jobs:
          docker buildx build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.1 --push .
       - name: Update Kubernetes Deployment
         run: |
-          sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+         echo "Before:"
+         cat argocd-manifests/hello-dotnet-app-deployment.yaml
+         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+         echo "After:"
+         cat argocd-manifests/hello-dotnet-app-deployment.yaml
 
       - name: Debug Info
         run: |
