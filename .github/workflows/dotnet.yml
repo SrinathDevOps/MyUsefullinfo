@@ -57,7 +57,7 @@ jobs:
         run: |
           echo "KUBECONFIG: $KUBECONFIG"
           cat $KUBECONFIG
-          kubectl config current-context
+          # kubectl config current-context
           kubectl cluster-info 
           kubectl version
           kubectl get nodes
