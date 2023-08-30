@@ -42,21 +42,21 @@ jobs:
           docker login argocdsrips.azurecr.io -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
           
           # Build and push the Docker image
-          docker build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.4 .
-          docker push argocdsrips.azurecr.io/hello-dotnet-app:latest.4
+          docker build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.5 .
+          docker push argocdsrips.azurecr.io/hello-dotnet-app:latest.5
 
       - name: Update Kubernetes Deployment
         run: |
          echo "Before:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
-         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.4|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.5|g' argocd-manifests/hello-dotnet-app-deployment.yaml
          sed -i 's|replicas: .*|replicas: 10|g' argocd-manifests/hello-dotnet-app-deployment.yaml
          echo "After:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
 
       - name: Commit Changes
         run: |
-          git config --local user.email "srinath.kaithoju@gmail.com
+          git config --local user.email "srinath.kaithoju@gmail.com"
           git config --local user.name "SrinathDevOps"
           git add .
           git commit -m "Update Kubernetes deployment and replicas"
