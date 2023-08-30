@@ -55,7 +55,7 @@ jobs:
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
       - name: Debug Info
         run: |
-          echo "KUBECONFIG: $KUBECONFIG"
+          # echo "KUBECONFIG: $KUBECONFIG"
           # cat $KUBECONFIG
           # kubectl config current-context
           kubectl cluster-info 
