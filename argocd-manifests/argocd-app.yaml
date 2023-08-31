@@ -1,18 +1,11 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: hello-dotnet-app
+project: default
+source:
+  repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git?access_token=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'
+  path: argocd-manifests
+  targetRevision: main
+destination:
+  server: 'https://kubernetes.default.svc'
   namespace: argocd
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: argocd
-  source:
-    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git?access_token=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' # Your GitOps repository URL https://github.com/SrinathDevOps/MyUsefullinfo.git
-    targetRevision: main
-    path: argocd-manifests
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
-
+syncPolicy:
+  automated:
+    prune: true
