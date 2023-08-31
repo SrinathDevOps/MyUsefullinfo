@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-dotnet-app
 spec:
-  replicas: 15
+  replicas: 10
   selector:
     matchLabels:
       app: hello-dotnet-app
@@ -15,7 +15,7 @@ spec:
       containers:
         - name: hello-dotnet-app
           imagePullPolicy: Always
-          image: argocdsrips.azurecr.io/hello-dotnet-app:latest.v10
+          image: argocdsrips.azurecr.io/hello-dotnet-app:latest.v11
           ports:
             - containerPort: 80
       imagePullSecrets:
