@@ -2,7 +2,7 @@
 # Stage 1: Build the application
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY src/HelloWorldApp/HelloWorldApp.csproj .
+COPY src/HelloWorldApp/Helloworldapp.web/Helloworldapp.web.csproj .
 RUN dotnet restore
 COPY src/HelloWorldApp .
 RUN dotnet publish -c Release -o /app
