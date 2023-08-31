@@ -1,11 +1,17 @@
-project: default
-source:
-  repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git?access_token=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'
-  path: argocd-manifests
-  targetRevision: main
-destination:
-  server: 'https://kubernetes.default.svc'
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-dotnet-app
   namespace: argocd
-syncPolicy:
-  automated:
-    prune: true
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'  # Your Kubernetes API server URL
+    namespace: default
+  source:
+    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git?access_token=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'  # Your GitOps repository URL
+    targetRevision: main
+    path: argocd-manifests  # Path to the directory containing your deployment YAML files
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
