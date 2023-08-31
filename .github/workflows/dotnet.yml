@@ -42,15 +42,15 @@ jobs:
           docker login argocdsrips.azurecr.io -u "$ACR_USERNAME" -p "$ACR_PASSWORD"
           
           # Build and push the Docker image
-          docker build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.v10 .
-          docker push argocdsrips.azurecr.io/hello-dotnet-app:latest.v10
+          docker build --file Dockerfile --tag argocdsrips.azurecr.io/hello-dotnet-app:latest.v11 .
+          docker push argocdsrips.azurecr.io/hello-dotnet-app:latest.v11
 
       - name: Update Kubernetes Deployment
         run: |
          echo "Before:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
-         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.v10|g' argocd-manifests/hello-dotnet-app-deployment.yaml
-         sed -i 's|replicas: .*|replicas: 15|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+         sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:latest.v11|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+         sed -i 's|replicas: .*|replicas: 10|g' argocd-manifests/hello-dotnet-app-deployment.yaml
          echo "After:"
          cat argocd-manifests/hello-dotnet-app-deployment.yaml
 
