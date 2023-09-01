@@ -15,7 +15,7 @@ spec:
       containers:
         - name: hello-dotnet-app
           imagePullPolicy: Always
-          image: argocdsrips.azurecr.io/hello-dotnet-app:v16
+          image: argocdsrips.azurecr.io/hello-dotnet-app:v17
           ports:
             - containerPort: 80
       imagePullSecrets:
