@@ -8,7 +8,7 @@ spec:
     server: 'https://kubernetes.default.svc'  # Your Kubernetes API server URL
     namespace: argocdnew
   source:
-    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git?access_token=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'  # Your GitOps repository URL
+    repoURL: 'git@github.com:SrinathDevOps/MyUsefullinfo.git'  # Your GitOps repository URL
     targetRevision: main
     path: argocd-manifests  # Path to the directory containing your deployment YAML files
   project: default
