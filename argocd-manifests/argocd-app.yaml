@@ -13,5 +13,12 @@ spec:
     path: argocd-manifests  # Path to the directory containing your deployment YAML files
   project: default
   syncPolicy:
-    automated:
-      prune: true
+  automated:
+    prune: true
+    selfHeal:true
+    allowEmpty:false
+  syncOptions:
+    -validate=true
+    -createNamespace=true
+    -PrunePropagationPolicy=foreground
+    -PruneLast=true
