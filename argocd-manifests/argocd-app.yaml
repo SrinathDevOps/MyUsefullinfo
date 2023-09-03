@@ -2,11 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: hello-dotnet-app
-  namespace: argocdnew
+  namespace: argocdnewone
 spec:
   destination:
     server: 'https://kubernetes.default.svc'  # Your Kubernetes API server URL
-    namespace: argocdnew
+    namespace: default
   source:
     repoURL: 'git@github.com:SrinathDevOps/MyUsefullinfo.git'  # Your GitOps repository URL
     targetRevision: main
