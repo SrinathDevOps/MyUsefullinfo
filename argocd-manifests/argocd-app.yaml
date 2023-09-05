@@ -8,17 +8,17 @@ spec:
     server: 'https://kubernetes.default.svc'  # Your Kubernetes API server URL
     namespace: default
   source:
-    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git'  # Your GitOps repository URL
+    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git'  # Corrected Git URL format
     targetRevision: main
     path: argocd-manifests  # Path to the directory containing your deployment YAML files
   project: default
   syncPolicy:
-  automated:
-    prune: true
-    selfHeal:true
-    allowEmpty:false
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
   syncOptions:
-    -validate=true
-    -createNamespace=true
-    -PrunePropagationPolicy=foreground
-    -PruneLast=true
+    - validate=true
+    - createNamespace=true
+    - PrunePropagationPolicy=foreground
+    - PruneLast=true
