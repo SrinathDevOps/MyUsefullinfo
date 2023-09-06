@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: argocdapp
-  namespace: ArgoCD
+  namespace: argocdapp
 spec:
   destination:
     server: 'https://kubernetes.default.svc'  # Your Kubernetes API server URL
