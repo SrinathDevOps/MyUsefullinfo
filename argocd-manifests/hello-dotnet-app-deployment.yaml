@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-dotnet-app
+  name: argocdapp  # Change this to match your Argo CD application name
 spec:
-  replicas:4
+  replicas: 4
   selector:
     matchLabels:
       app: hello-dotnet-app
