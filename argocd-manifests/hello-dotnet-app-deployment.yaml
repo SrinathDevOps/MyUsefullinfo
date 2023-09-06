@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: argocdapp  # Change this to match your Argo CD application name
 spec: 
-  replicas:4
+  replicas: 4
   selector:
     matchLabels:
       app: hello-dotnet-app
