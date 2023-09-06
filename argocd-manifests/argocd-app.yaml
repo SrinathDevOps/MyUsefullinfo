@@ -5,7 +5,7 @@ metadata:
   namespace: argocdlatest
 spec:
   destination:
-    server: 'https://kubernetes.default.svc'  # Your Kubernetes API server URL
+    server: 'https://172.178.38.39:32468'  # Your Kubernetes API server URL
     namespace: default
   source:
     repoURL: 'git@github.com:SrinathDevOps/MyUsefullinfo.git'  # Corrected Git URL format
