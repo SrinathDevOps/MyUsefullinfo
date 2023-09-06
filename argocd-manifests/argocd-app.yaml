@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hello-dotnet-app
+  name: argocdapp
   namespace: argocdlatest
 spec:
   destination:
