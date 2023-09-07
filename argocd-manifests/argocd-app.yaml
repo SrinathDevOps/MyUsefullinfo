@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-app
+  name: argocd-appnew
   namespace: argocdapp
 spec:
   destination:
-    server: 'https://kubernetes.default.svc'  # Your Kubernetes API server URL
+    server: "https://kubernetes.default.svc" # Your Kubernetes API server URL
     namespace: default
   source:
-    repoURL: 'https://github.com/SrinathDevOps/MyUsefullinfo.git'  # Corrected Git URL format
+    repoURL: "https://github.com/SrinathDevOps/MyUsefullinfo.git" # Corrected Git URL format
     targetRevision: main
-    path: argocd-manifests  # Path to the directory containing your deployment YAML files
+    path: argocd-manifests # Path to the directory containing your deployment YAML files
   project: default
   syncPolicy:
     automated:
