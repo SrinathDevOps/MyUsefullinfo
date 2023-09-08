@@ -49,7 +49,7 @@ jobs:
           echo "Before:"
           cat argocd-manifests/hello-dotnet-app-deployment.yaml
           sed -i 's|image: argocdsrips.azurecr.io/hello-dotnet-app:.*|image: argocdsrips.azurecr.io/hello-dotnet-app:v24|g' argocd-manifests/hello-dotnet-app-deployment.yaml
-          sed -i 's|replicas: .*|replicas: 2|g' argocd-manifests/hello-dotnet-app-deployment.yaml
+          sed -i 's|replicas: .*|replicas: 5|g' argocd-manifests/hello-dotnet-app-deployment.yaml
           echo "After:"
           cat argocd-manifests/hello-dotnet-app-deployment.yaml
 
