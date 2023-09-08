@@ -17,23 +17,8 @@ spec:
       prune: true
       selfHeal: true
       allowEmpty: false
-  syncOptions:
-    - validate=true
-    - createNamespace=true
-    - PrunePropagationPolicy=foreground
-    - PruneLast=true
-    - dryRun=false
-    - force=false
-    - timeout=0s
-    - retry=true
-    - retryPeriod=1s
-    - retryBackoff=2
-    - syncWave=0
-    - ApplyOutOfSyncOnly=false
-    - SkipDryRunOnMissingResource=false
-    - Replace=false
-    - SkipHooks=false
-    - Validate=false
-    - ValidateStrict=false
-    - ValidateNonFatal=false
-    - ValidateIgnoreUnknownFields=false
+  #syncOptions:
+  # - validate=true
+  #- createNamespace=true
+  #- PrunePropagationPolicy=foreground
+  #- PruneLast=true
